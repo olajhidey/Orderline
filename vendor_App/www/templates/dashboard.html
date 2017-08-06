@@ -1,0 +1,49 @@
+<ion-view>
+	<ion-header-bar class="bar bar-header bar-positive">
+    	<h1 class="title">Dashboard</h1>
+ 	</ion-header-bar>
+ 	<ion-content>
+ 	 <h4 class="greet">Welcome {{ name }},</h4>
+ 	 	<div class="list">
+
+ 	 	 <a class="item item-icon-left">
+    		<i class="icon ion-person-stalker"></i>
+   			 Total Vendor
+   			 <span class="item-note"> 
+   			 	<b>{{total_vendor}}</b>
+   			 </span>
+  		</a>
+
+  		<a class="item item-icon-left">
+    		<i class="icon ion-ios-cart"></i>
+   			 Total Order
+   			 <span class="item-note"> 
+   			 	<b>{{total_order}}</b>
+   			 </span>
+  		</a>
+
+  		<a class="item item-icon-left">
+    		<i class="icon ion-ios-list-outline"></i>
+   			 Last Order
+   			 <span class="item-note"> 
+             <b ng-if="status == null">Not Available</b>
+   			    <b ng-if="status == 0">Pending</b>
+            <b ng-if="status == -1">Declined</b>
+            <b ng-if="status == 1">Approved</b>
+            <b ng-if="status == 2">Delivered</b>
+   			 </span>
+  		</a>
+
+  		<a class="item item-icon-left">
+    		<i class="icon ion-android-bus"></i>
+   			 Delivery Date
+   			 <span class="item-note"> 
+   			 	 <b ng-if="order_delivery === null">Not Available</b>
+           <b ng-if="order_delivery !== null">{{order_delivery}}</b>
+   			 </span>
+  		</a>
+ 	 		
+ 	 	</div>
+ 	 	
+ 	</ion-content>
+</ion-view>

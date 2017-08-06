@@ -1,0 +1,25 @@
+<ion-view>
+<ion-header-bar class="bar bar-header bar-positive">
+    <button class="button button-clear icon ion-arrow-left-c" ng-click="backOrder()"></button>
+    <h1 class="title">Check Order</h1>
+</ion-header-bar>
+    
+    <ion-content>
+       <div class = "row header">
+	   <div class = "col">Item name</div>
+	   <div class = "col">Quantity</div>
+	   <div class = "col">Amount</div>
+     <div class="col"></div>
+	</div>
+     <div class="row" ng-repeat= "display in selection track by $index" >
+     <div class = "col">{{display.product_name}}</div>
+	   <div class = "col">{{display.quantity}}</div>
+	   <div class = "col">{{display.price}}</div>
+     <div class="col"><button ng-click="removeOrder(display)" class="button button-assertive">X</button></div>
+      </div>
+        <h3 align="center"><strong>Total : &#x20A6{{getTotal() | number:2}}</strong></h3>
+      <button class="button button-block button-positive" ng-click="placeFinalOrder()">Place Order</button>
+    </ion-content>
+    
+    
+</ion-view>

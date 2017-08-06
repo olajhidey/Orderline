@@ -1,0 +1,27 @@
+ <ion-modal-view>
+     <ion-header-bar class="bar bar-header bar-positive">
+       <h1 class="title">Orders</h1>
+        <div class="buttons">
+       <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+          </div> 
+     </ion-header-bar>
+      <ion-content>
+           <ul class="list">
+             <li class="item"> Receipt Number : {{receipt}}</li>
+              <li class="item">Status : {{dis_status}}</li>
+              <li class="item"><strong>Total: &#x20A6{{totalAmount() | number:2}}</strong><br></li>
+              <li class="item">Order Date : {{date}}</li>
+           </ul>
+           <div class="row header">
+               <div class="col">Item Name</div>
+               <div class="col">Quantity</div>
+               <div class="col">Amount</div>
+           </div>
+           <div class="row" ng-repeat = "x in orderedItems" >
+               <div class="col">{{x.product_name}}</div>
+               <div class="col">{{x.quantity}}</div>
+               <div class="col">{{(x.price)}}</div>
+           </div>
+       
+   </ion-content>
+</ion-modal-view>

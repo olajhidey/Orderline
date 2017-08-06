@@ -1,0 +1,30 @@
+<ion-view>
+	<ion-header-bar class="bar bar-header bar-positive">
+    	<h1 class="title">Profile</h1>
+    	<button class="button button-positive" ng-click="logOut()">Sign Out</button>
+  	</ion-header-bar>
+  <ion-content>
+  	<form ng-submit="editProfile()">
+      <div class="list">
+        <label class="item item-input">
+          	 <span class="input-label">First Name</span>
+         	 <input type="text" ng-model="edit.name" ng-value="name" >
+        </label>
+
+         <label class="item item-input">
+          <span class="input-label">E-mail</span>
+          <input type="email" ng-model="edit.email" ng-value="email" >
+        </label>
+
+         <label class="item item-input">
+          <span class="input-label">Address</span>
+          <input type="text" ng-value="location" ng-model="edit.address">
+        </label>
+
+         <label class="item">
+          <button class="button button-block button-positive" type="submit">Save Changes</button>
+      </label>
+	  </div>
+     </form>
+  </ion-content>
+</ion-view>

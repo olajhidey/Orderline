@@ -1,0 +1,40 @@
+<ion-view>  
+     <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">Order Status</h1>
+            <div class="buttons">
+              <button class="button button-clear" ng-click="logOut()">Sign out</button> 
+            </div>
+     </ion-header-bar>
+  <ion-content>
+    <ion-refresher
+       pulling-text="Pull to Refresh.."
+       on-refresh="doRefresh()">
+       </ion-refresher>
+  <div class = "row header">
+          <div class="col"><strong>Invoice</strong></div>
+          <div class="col"><strong>Date</strong></div>
+          <div class="col"><strong>Status</strong></div>
+          <div class="col"><strong>Delivery Date</strong></div>
+  </div>
+  <div ng-if="getOrders == undefined">No orders</div>
+  <div class="row" ng-repeat="orders in getOrders" ng-Style="myStyle">
+      <div class="col" style="color:blue;" ng-click="openModal(orders.receipt,orders.total_amount, message,orders.datetime, orders.status)">{{orders.receipt}}</div>
+        <div class="col">{{orders.datetime}}</div>
+       
+        <div class="col" id = "decline" value= "{{orders.status}}" ng-if="orders.status == -1">
+          Declined
+        </div>
+         <div class="col" id = "pending" value= "{{orders.status}}" ng-if="orders.status == 0">
+          Pending
+        </div>
+         <div class="col" id = "approve" value= "{{orders.status}}" ng-if="orders.status == 1">
+          Approved
+        </div>
+         <div class="col" id = "delivered" value= "{{orders.status}}" ng-if="orders.status == 2">
+         Delivered
+        </div>
+       
+        <div class="col" ng-init= "orders.delivery_date == null ? orders.delivery_date ='Unavailable' : orders.delivery_date ">{{orders.delivery_date}}</div>
+  </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view>
+  <ion-header-bar class="bar bar-header bar-positive" >
+    <h1 class="title">Select vendor</h1>
+  </ion-header-bar>
+  <ion-content padding="true">
+    <form ng-submit="selectVendor()">
+      <div class="list">
+        <div>
+        <label class="item item-input item-select">
+          <span class="input-label">Select Vendor</span>
+          <div align="center">
+          <select ng-model = "mySelect" ng-change="selectedValue(mySelect)">
+                <option value="" selected="true">Choose vendor</option>
+                <option ng-repeat="vendor in vendors" value ="{{vendor.vendor_id}}">{{vendor.company_name}}</option>
+          </select>
+         </div>
+        </label>
+        </div>
+        
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-disabled="!mySelect">Add</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
